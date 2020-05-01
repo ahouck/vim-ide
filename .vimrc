@@ -1,16 +1,25 @@
-" Don't try to be vi compatible
+" on't try to be vi compatible
 set nocompatible
+" Turn on syntax highlighting
+syntax enable
 
+" set t_Co=256
+"set t_AB=^[[48;5;%dm
+"set t_AF=^[[38;5;%dm
+" set term=xterm-256color
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 
+set termguicolors
 " TODO: Load plugins here (pathogen or vundle)
-
-" Turn on syntax highlighting
-syntax on
+call plug#begin('~/.vim/plugged')
+"Plug 'leafgarland/typescript' 
+"Plugin 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+call plug#end()
 
 " For plugins to load correctly
-filetype plugin indent on
+"filetype plugin indent on
 
 " TODO: Pick a leader key
 " let mapleader = ","
@@ -45,11 +54,22 @@ set scrolloff=3
 set backspace=indent,eol,start
 set matchpairs+=<:> " use % to jump between pairs
 runtime! macros/matchit.vim
+" Prevent exiting visual mode when shifting text
+vmap > >gv
+vmap < <gv
 
 " Move up/down editor lines
 nnoremap j gj
 nnoremap k gk
 
+" Split Window Shortcuts 
+nmap ss :split<Return><C-w>w
+nmap sv :vsplit<Return><C-w>w
+"Move between panes
+map sh <C-w>h
+map sk <C-w>k
+map sj <C-w>j
+map sl <C-w>l
 " Allow hidden buffers
 set hidden
 
@@ -81,20 +101,23 @@ set showmatch
 " Textmate holdouts
 
 " Formatting
-map <leader>q gqip
+"map <leader>q gqip
 
 " Visualize tabs and newlines
-set listchars=tab:▸\ ,eol:¬
+"set listchars=tab:▸\ ,eol:¬
 " Uncomment this to enable by default:
 " set list " To enable by default
 " Or use your leader key + l to toggle on/off
-map <leader>l :set list!<CR> " Toggle tabs and EOL
+"map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " Color scheme (terminal)
-"set t_Co=256
-"set background=dark
-"let g:solarized_termcolors=256
-"let g:solarized_termtrans=1
+set background=dark
+let g:solarized_termtrans=1
+" let g:solarized_termcolors=256
+" let g:solarized_termtrans=1
 " put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 " in ~/.vim/colors/ and uncomment:
-" colorscheme solarized
+ colorscheme solarized8
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
