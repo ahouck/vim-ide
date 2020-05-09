@@ -9,8 +9,26 @@
 3. Install bobthefish theme
   omf install bobthefish
   
-4. Install Solarized terminal theme
-  http://ethanschoonover.com/solarized/files/solarized.zip
+4. ~~Install Solarized terminal theme
+  ~~http://ethanschoonover.com/solarized/files/solarized.zip
+  
+  Issues with solarized, switched to solarized8 
+  https://vimawesome.com/plugin/solarized-8
+  
+  git clone https://github.com/lifepillar/vim-solarized8.git ~/.vim/pack/themes/opt/solarized8
+  
+  > .vimrc
+  > set background=dark
+  > colorscheme solarized8
+  > g:solarized_termtrans=1
+  > let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  > let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  
+  Terminal needs to be true color, using iterm2
+  Set terminal AND vim to solarized
+  
+Typescript syntax highlighting ? not sure if this does anything yet
+git clone https://github.com/leafgarland/typescript-vim.git ~/.vim/pack/typescript/start/typescript-vim
 
 5. Powerline Fonts
   git clone https://github.com/powerline/fonts.git
@@ -25,4 +43,4 @@ interactive powerline https://www.freecodecamp.org/news/jazz-up-your-bash-termin
 
 powerline daeomn start /Users/USERNAME/Library/Python/3.8/bin
 
-Background RGB = 13,36,42
+//Background RGB = 13,36,42
