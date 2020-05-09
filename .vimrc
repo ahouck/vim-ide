@@ -121,3 +121,15 @@ let g:solarized_termtrans=1
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
+
+"IDE Stuff
+"autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
+let g:ale_fixers = {
+  \ 'javascript': ['prettier'],
+  \ 'css': ['prettier'],
+  \ 'typescript': ['prettier'],
+\}
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+let g:ale_fix_on_save = 1
+packloadall
