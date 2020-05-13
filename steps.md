@@ -1,4 +1,4 @@
-##Steps to create
+##Steps to create UI - iTerm 2
 
 1. Install `fish`
   brew install fish
@@ -44,3 +44,12 @@ interactive powerline https://www.freecodecamp.org/news/jazz-up-your-bash-termin
 powerline daeomn start /Users/USERNAME/Library/Python/3.8/bin
 
 //Background RGB = 13,36,42
+
+##Actual VIM IDE portion
+
+1. Make sure running vim 8.0 + 
+
+#Plugins 
+  1. ALE -- ale.install.sh
+  2. COC -- coc.install.sh
+    a. place coc-settings.json in ~/.vim/coc-settings.json
