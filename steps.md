@@ -53,3 +53,6 @@ powerline daeomn start /Users/USERNAME/Library/Python/3.8/bin
   1. ALE -- ale.install.sh
   2. COC -- coc.install.sh
     a. place coc-settings.json in ~/.vim/coc-settings.json
+  3. FZF -- fzf.install.sh, seems to be small issue with fish?
+    a. Also useful in terminal outside of vim
+  4. Vim-Rooter - Looks up for .git and sets working directory.

@@ -285,4 +285,18 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" FZF
+" Shows ALL files
+nnoremap <silent> <C-p> :Files<CR>
+" Shows only git tracked files
+nnoremap <silent> <C-g> :GFiles<CR>
+" Show open buffers
+" <C-o> is jump to place cursor has been, 
+" "dont want to override... think of another 
+"nnoremap <silent> <C-o> :Buffers<CR>
+
+" Fuzzy find across all files
+" Add ! at end to show in FullScreen
+nnoremap <C-f> :Rg
 packloadall
