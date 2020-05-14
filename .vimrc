@@ -299,4 +299,16 @@ nnoremap <silent> <C-g> :GFiles<CR>
 " Fuzzy find across all files
 " Add ! at end to show in FullScreen
 nnoremap <C-f> :Rg
+" Copy yank buffer to system clipboard
+" Use OSC52, works over SSH
+function! Osc52Yank()
+  " Not sure why 'let=buff' twice
+  let buff=system('base64 -w0', @0) 
+  "-w0 to disable 76 char line wrapping
+  let buff='\ePtmux;\e\e]52;c'.buffer.'\x07\e\\'
+  silent exe "|echo -ne ".shellescape(buffer)." > ".shellescape(g:tty)
+endfunction
+
+"Need to figure out a good keymapping for OSC52 Yank
+nnoremap <leader>y :call Osc52Yank()<CR>
 packloadall
