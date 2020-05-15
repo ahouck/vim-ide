@@ -13,6 +13,8 @@ filetype off
 set termguicolors
 " TODO: Load plugins here (pathogen or vundle)
 call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 "Plug 'leafgarland/typescript' 
 "Plugin 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
