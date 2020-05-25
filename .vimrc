@@ -2,6 +2,8 @@
 set nocompatible
 " Turn on syntax highlighting
 syntax enable
+"show current line number, and surrounding as relative
+set number relativenumber
 
 " set t_Co=256
 "set t_AB=^[[48;5;%dm
@@ -18,6 +20,7 @@ Plug 'junegunn/fzf.vim'
 "Plug 'leafgarland/typescript' 
 "Plugin 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " For plugins to load correctly
@@ -313,4 +316,9 @@ endfunction
 
 "Need to figure out a good keymapping for OSC52 Yank
 nnoremap <leader>y :call Osc52Yank()<CR>
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline_statusline_ontop=1
+let g:airline_powerline_fonts = 1
+"remove the % of where you are in the file
+let g:airline_section_z = ''
 packloadall
