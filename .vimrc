@@ -28,6 +28,7 @@ Plug 'junegunn/fzf.vim'
 "Plugin 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 " For plugins to load correctly
