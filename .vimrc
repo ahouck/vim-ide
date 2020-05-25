@@ -1,3 +1,10 @@
+" Auto Install Vim-Plugged if not already available
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " on't try to be vi compatible
 set nocompatible
 " Turn on syntax highlighting
