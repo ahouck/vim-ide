@@ -17,12 +17,15 @@
   
   git clone https://github.com/lifepillar/vim-solarized8.git ~/.vim/pack/themes/opt/solarized8
   
-  > .vimrc
-  > set background=dark
-  > colorscheme solarized8
-  > g:solarized_termtrans=1
-  > let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  > let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  
+ .vimrc
+```   
+   set background=dark
+   colorscheme solarized8
+   g:solarized_termtrans=1
+   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+ ```
   
   Terminal needs to be true color, using iterm2
   Set terminal AND vim to solarized
