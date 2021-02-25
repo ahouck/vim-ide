@@ -1,4 +1,4 @@
-##Steps to create UI - iTerm 2
+### Steps to create UI - iTerm 2
 
 1. Install `fish`
   brew install fish
@@ -31,24 +31,31 @@
   Set terminal AND vim to solarized
   
 Typescript syntax highlighting ? not sure if this does anything yet
+
 `git clone https://github.com/leafgarland/typescript-vim.git ~/.vim/pack/typescript/start/typescript-vim`
 
 5. Powerline Fonts
-  git clone https://github.com/powerline/fonts.git
-  cd fonts
-  ./install.sh
+  
+  `git clone https://github.com/powerline/fonts.git`
+  
+  `cd fonts`
+  
+  `./install.sh`
   
 6. Set terminal default theme as Solarize (should be current)
    Set terminal default opacity 50%
    Set terminal default font Ubuntu Mono derivitive Powerline 11pt
    
+   
+ > (not sure what this is below)  
+ 
 interactive powerline https://www.freecodecamp.org/news/jazz-up-your-bash-terminal-a-step-by-step-guide-with-pictures-80267554cb22/
 
 powerline daeomn start /Users/USERNAME/Library/Python/3.8/bin
 
 //Background RGB = 13,36,42
 
-##Actual VIM IDE portion
+### Actual VIM IDE portion
 
 1. Make sure running vim 8.0 + 
 
