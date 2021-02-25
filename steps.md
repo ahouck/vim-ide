@@ -31,7 +31,7 @@
   Set terminal AND vim to solarized
   
 Typescript syntax highlighting ? not sure if this does anything yet
-git clone https://github.com/leafgarland/typescript-vim.git ~/.vim/pack/typescript/start/typescript-vim
+`git clone https://github.com/leafgarland/typescript-vim.git ~/.vim/pack/typescript/start/typescript-vim`
 
 5. Powerline Fonts
   git clone https://github.com/powerline/fonts.git
