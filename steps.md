@@ -9,8 +9,8 @@
 3. Install bobthefish theme
   omf install bobthefish
   
-4. ~~Install Solarized terminal theme
-  ~~http://ethanschoonover.com/solarized/files/solarized.zip
+4. ~~Install Solarized terminal theme~~
+  ~~http://ethanschoonover.com/solarized/files/solarized.zip~~
   
   Issues with solarized, switched to solarized8 
   https://vimawesome.com/plugin/solarized-8
