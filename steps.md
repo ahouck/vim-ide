@@ -59,11 +59,14 @@ powerline daeomn start /Users/USERNAME/Library/Python/3.8/bin
 
 1. Make sure running vim 8.0 + 
 
-#Plugins 
+#Plugins - Included bash scripts but most have Vim Plug config in .vimrc already anyway 
   1. ALE -- ale.install.sh
   2. COC -- coc.install.sh.  
     a. place coc-settings.json in ~/.vim/coc-settings.json.  
     b. inside of vim run `:CocInstall coc-tsserver` and `:CocInstall coc-eslint`
   3. FZF -- fzf.install.sh, seems to be small issue with fish?   
     a. Also useful in terminal outside of vim
+    b. **Need to install regardless of using Vim plug or script **
+        `brew install the_silver_searcher`   
+        `brew install ripgrep`   
   4. Vim-Rooter - Looks up for .git and sets working directory.

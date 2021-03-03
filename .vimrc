@@ -27,8 +27,13 @@ Plug 'junegunn/fzf.vim'
 "Plug 'leafgarland/typescript' 
 "Plugin 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
+Plug 'preservim/nerdtree'
+
+"Easily surround text like quoting or putting inside element
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " For plugins to load correctly
@@ -87,6 +92,11 @@ map sh <C-w>h
 map sk <C-w>k
 map sj <C-w>j
 map sl <C-w>l
+
+"Shortcut to adjust pane width
+map s> <C-w>>
+map s< <C-w>>
+
 " Allow hidden buffers
 set hidden
 
@@ -128,13 +138,13 @@ set showmatch
 "map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " Color scheme (terminal)
-set background=dark
+"set background=dark
 let g:solarized_termtrans=1
-" let g:solarized_termcolors=256
-" let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
 " put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 " in ~/.vim/colors/ and uncomment:
- colorscheme solarized8
+colorscheme solarized8
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
@@ -311,7 +321,7 @@ nnoremap <silent> <C-g> :GFiles<CR>
 
 " Fuzzy find across all files
 " Add ! at end to show in FullScreen
-nnoremap <C-f> :Rg
+nnoremap <C-f> :Rg<CR>
 " Copy yank buffer to system clipboard
 " Use OSC52, works over SSH
 function! Osc52Yank()
@@ -324,8 +334,8 @@ endfunction
 
 "Need to figure out a good keymapping for OSC52 Yank
 nnoremap <leader>y :call Osc52Yank()<CR>
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline_statusline_ontop=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_statusline_ontop=1
 let g:airline_powerline_fonts = 1
 "remove the % of where you are in the file
 let g:airline_section_z = ''
