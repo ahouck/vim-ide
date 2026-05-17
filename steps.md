@@ -1,74 +1,81 @@
-### Steps to create UI - iTerm 2
+# Setup steps
 
-1. Install `fish`
-   brew install fish
+These are the one-time setup steps for a fresh macOS box.
 
-2. Install oh-my-fish
-   curl -L https://get.oh-my.fish | fish
+## 1. Terminal + shell
 
-3. Install bobthefish theme
-   omf install bobthefish
+Using **iTerm2 + fish + oh-my-fish + bobthefish theme**. The included
+`iterm2_profile.json` carries the Solarized Dark colorscheme and Ubuntu Mono
+derivative Powerline font.
 
-4. ~~Install Solarized terminal theme~~
-   ~~http://ethanschoonover.com/solarized/files/solarized.zip~~
+```sh
+# Homebrew (if not already)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-Issues with solarized, switched to solarized8
-https://vimawesome.com/plugin/solarized-8
-
-git clone https://github.com/lifepillar/vim-solarized8.git ~/.vim/pack/themes/opt/solarized8
-
-.vimrc
-
-```
-   set background=dark
-   colorscheme solarized8
-   g:solarized_termtrans=1
-   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+brew install --cask iterm2
+brew install fish
 ```
 
-Terminal needs to be true color, using iterm2
-Set terminal AND vim to solarized
+### Powerline fonts
 
-Typescript syntax highlighting ? not sure if this does anything yet
+```sh
+git clone --depth=1 https://github.com/powerline/fonts.git /tmp/fonts
+/tmp/fonts/install.sh
+rm -rf /tmp/fonts
+```
 
-`git clone https://github.com/leafgarland/typescript-vim.git ~/.vim/pack/typescript/start/typescript-vim`
+### oh-my-fish + bobthefish
 
-5. Powerline Fonts
+```sh
+curl -sL https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+fish -c "omf install bobthefish"
+```
 
-`git clone https://github.com/powerline/fonts.git`
+### Set fish as default shell
 
-`cd fonts`
+```sh
+echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
+chsh -s /opt/homebrew/bin/fish
+```
 
-`./install.sh`
+Import `iterm2_profile.json` via iTerm2 → Preferences → Profiles → Other
+Actions → Import JSON Profiles. This sets the Solarized colors and Powerline
+font automatically.
 
-6. Set terminal default theme as Solarize (should be current)
-   Set terminal default opacity 50%
-   Set terminal default font Ubuntu Mono derivitive Powerline 11pt
+## 2. Vim + dependencies
 
-> (not sure what this is below)
+```sh
+brew install vim tmux fzf ripgrep node
+$(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
+```
 
-interactive powerline https://www.freecodecamp.org/news/jazz-up-your-bash-terminal-a-step-by-step-guide-with-pictures-80267554cb22/
+`ripgrep` powers `:Rg` inside vim; `node` is required by CoC.
 
-powerline daeomn start /Users/USERNAME/Library/Python/3.8/bin
+## 3. Wire up the configs
 
-//Background RGB = 13,36,42
+```sh
+# from this repo
+ln -sf "$PWD/.vimrc"     ~/.vimrc
+ln -sf "$PWD/.tmux.conf" ~/.tmux.conf
+mkdir -p ~/.vim
+ln -sf "$PWD/coc-settings.json" ~/.vim/coc-settings.json
+```
 
-### Actual VIM IDE portion
+## 4. First vim launch
 
-1. Make sure running vim 8.0 +
+`vim-plug` bootstraps itself from `.vimrc`. On first launch it will:
 
-#Plugins - Included bash scripts but most have Vim Plug config in .vimrc already anyway
+1. Download `~/.vim/autoload/plug.vim`
+2. Run `:PlugInstall` automatically
+3. CoC will install `coc-tsserver` and `coc-eslint` on its own
 
-1. ALE -- ale.install.sh
-2. COC -- coc.install.sh.  
-   a. place coc-settings.json in ~/.vim/coc-settings.json.  
-   b. inside of vim run `:CocInstall coc-tsserver` and `:CocInstall coc-eslint`
-3. FZF -- fzf.install.sh, seems to be small issue with fish?  
-   a. Also useful in terminal outside of vim
-   b. **Need to install regardless of using Vim plug or script **
-   `brew install the_silver_searcher`  
-    `brew install ripgrep`
-4. Vim-Rooter - Looks up for .git and sets working directory.
+If anything looks off, run `:PlugInstall` and `:CocUpdate` manually.
 
-Github security Test
+## 5. tmux pane layout helper
+
+`ide.sh` splits the current tmux window into editor + two terminal panes:
+
+```sh
+tmux new -s dev
+./ide.sh
+```
